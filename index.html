@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Geschenke mit Herz Handmade mit Herz – personalisiert mit Name, Datum oder Spruch. Bestellung per WhatsApp." />
+  <title>Geschenke mit Herz Handmade</title>
+
+  <style>
+    :root{
+      --bg1:#fff1fb;
+      --bg2:#f3e8ff;
+      --card:#ffffffcc;
+      --text:#1f1430;
+      --muted:#5a4b74;
+      --pink:#ff4fb6;
+      --lila:#8b5cf6;
+      --lila2:#a78bfa;
+      --shadow: 0 18px 45px rgba(31,20,48,.14);
+      --radius: 22px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, #ffd6f2 0%, transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, #d9c7ff 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+    }
+
+    a{color:inherit}
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 26px 16px 70px;
+    }
+
+    header{
+      padding: 18px 0 12px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background: linear-gradient(90deg, #ffffffb8, #ffffff7a);
+      border: 1px solid rgba(139,92,246,.25);
+      box-shadow: 0 10px 30px rgba(139,92,246,.10);
+      font-weight: 600;
+      color: #3b2a57;
+      backdrop-filter: blur(8px);
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .sub{
+      margin: 0 auto;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin: 18px 0 0;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: 0;
+      cursor:pointer;
+      text-decoration:none;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, box-shadow .12s ease;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active{transform: translateY(1px) scale(.99)}
+
+    .btnPrimary{
+      color:white;
+      background: linear-gradient(90deg, var(--pink), var(--lila));
+    }
+
+    .btnGhost{
+      background: #ffffffb8;
+      border: 1px solid rgba(139,92,246,.25);
+      color: #3b2a57;
+      box-shadow: 0 12px 30px rgba(31,20,48,.10);
+    }
+
+    .grid{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 860px){
+      .grid{grid-template-columns: 1.1fr .9fr; gap:16px;}
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(139,92,246,.18);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+
+    .li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: #ffffffa6;
+      border: 1px solid rgba(139,92,246,.14);
+    }
+
+    .dot{
+      width: 10px;
+      height: 10px;
+      margin-top: 5px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--pink), var(--lila));
+      flex: 0 0 auto;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 520px){
+      .gallery{grid-template-columns: 1fr 1fr;}
+      .gallery .img:nth-child(1){grid-column: 1 / -1;}
+    }
+
+    .img{
+      position: relative;
+      border-radius: 20px;
+      overflow:hidden;
+      border: 1px solid rgba(139,92,246,.18);
+      background: #fff;
+      box-shadow: 0 14px 35px rgba(31,20,48,.12);
+      aspect-ratio: 4 / 5;
+    }
+
+    .img img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .pillRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .pill{
+      font-size: 13px;
+      color:#3b2a57;
+      background: #ffffffb8;
+      border: 1px solid rgba(139,92,246,.18);
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .split{
+      margin-top: 14px;
+      display:grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 860px){
+      .split{grid-template-columns: 1fr 1fr;}
+    }
+
+    .note{
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px dashed rgba(139,92,246,.35);
+      background: linear-gradient(90deg, #fff, #ffffffb0);
+    }
+
+    footer{
+      text-align:center;
+      margin-top: 18px;
+      color: rgba(90,75,116,.85);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .sticky{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 14px;
+      background: rgba(255, 241, 251, .78);
+      border-top: 1px solid rgba(139,92,246,.18);
+      backdrop-filter: blur(10px);
+      display:flex;
+      justify-content:center;
+      z-index: 50;
+    }
+
+    .sticky .btn{max-width: 520px; width: 100%;}
+
+    .small{
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .brand{
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--pink), var(--lila));
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="badge">💗💜 <span class="brand">Geschenke mit Herz Handmade</span></div>
+      <h1>Ein persönliches Geschenk<br/>für Mama, Partner:in & Herzensmenschen</h1>
+      <p class="sub">
+        Ich fertige für dich <b>handgemachte Porzellan-Gläser</b> und kleine Unikate –
+        personalisiert mit <b>Name</b>, <b>Datum</b> oder deinem <b>Wunschspruch</b>.
+      </p>
+
+      <div class="ctaRow">
+        <!-- TODO: WhatsApp Nummer eintragen -->
+        <a class="btn btnPrimary" id="waTop" href="https://wa.me/41782196969?text=Hallo%20😊%20Ich%20m%C3%B6chte%20ein%20Porzellan-Geschenk%20bestellen.%20" target="_blank" rel="noopener">💬 Jetzt per WhatsApp bestellen</a>
+        <a class="btn btnGhost" href="#so-gehts">✨ So funktioniert’s</a>
+      </div>
+
+      <p class="small" style="margin-top:10px;">Antwort meist schnell • Wunschfarben möglich • liebevoll handgemacht</p>
+    </header>
+
+
+    <section class="grid">
+      <div class="card">
+        <h2>📸 Beispiele</h2>
+        <div class="gallery">
+          <div class="img"><img src="8228E382-7823-4C7A-81DF-6C87127775B5.jpeg" alt="Handgemachtes Porzellan Geschenk" /></div>
+          <div class="img"><img src="0930614D-51E8-4C1D-AD48-4708FAD8AB74.jpeg" alt="Handgemachtes Porzellan Geschenk" /></div>
+          <div class="img"><img src="C52DE540-CE01-4EC1-93AD-BB4FFB3D4C22.jpeg" alt="Handgemachtes Porzellan Geschenk" /></div>
+        </div>
+
+        <div class="pillRow">
+          <div class="pill">🌸 Wunschfarben</div>
+          <div class="pill">🖊️ Name / Spruch</div>
+          <div class="pill">📅 Datum möglich</div>
+          <div class="pill">🎁 Geschenkidee</div>
+        </div>
+      </div>
+
+      <div class="card" id="so-gehts">
+        <h2>✨ Du kannst wählen</h2>
+        <ul class="list">
+          <li class="li"><span class="dot"></span><div><b>Deine Figur / dein Motiv</b><br/><span class="small">Du suchst dir aus, was drauf soll.</span></div></li>
+          <li class="li"><span class="dot"></span><div><b>Personalisierung</b><br/><span class="small">Mit Name, Datum oder deinem eigenen Spruch.</span></div></li>
+          <li class="li"><span class="dot"></span><div><b>Farben nach Wunsch</b><br/><span class="small">Rosa, Lila, bunt – so wie du es möchtest.</span></div></li>
+        </ul>
+
+        <div class="split" style="margin-top:14px;">
+          <div class="note">
+            <b>🎁 Perfekt als Geschenk für:</b><br/>
+            Mama & Papa • Freundin/Freund • Partner:in • Geschwister • Oma & Opa • oder einfach für jemanden, den du liebst.
+          </div>
+
+          <div class="note">
+            <b>🕊️ Andenken & Erinnerung</b><br/>
+            Wenn du möchtest, fertige ich auch ein liebevolles Andenken für einen verstorbenen Menschen –
+            z.B. fürs Grab oder als Erinnerung zuhause.
+          </div>
+        </div>
+
+        <div class="note" style="margin-top:14px;">
+          <b>🐾 Spenden-Hinweis</b><br/>
+          Das Geld wird gespendet an bedürftige Tiere sowie an Familien mit Kindern,
+          die in verschiedenen Ländern in Armut leben.
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="card" style="margin-top:14px;">
+      <h2>💬 Bestellung per WhatsApp (ganz einfach)</h2>
+      <p>
+        Schreib mir einfach per WhatsApp:
+      </p>
+      <ul class="list">
+        <li class="li"><span class="dot"></span><div><b>1)</b> Welche Figur / welches Motiv du möchtest</div></li>
+        <li class="li"><span class="dot"></span><div><b>2)</b> Wunschtext (Name, Datum, Spruch…)</div></li>
+        <li class="li"><span class="dot"></span><div><b>3)</b> Deine Wunschfarben</div></li>
+      </ul>
+
+      <div class="ctaRow" style="margin-top:14px;">
+        <a class="btn btnPrimary" id="waMid" href="https://wa.me/41782196969?text=Hallo%20😊%20Ich%20m%C3%B6chte%20ein%20Porzellan-Geschenk%20bestellen.%20" target="_blank" rel="noopener">💜💗 WhatsApp öffnen</a>
+        <a class="btn btnGhost" href="#spende">🐾 Spenden-Info</a>
+      </div>
+    </section>
+
+
+    <section class="card" id="spende" style="margin-top:14px;">
+      <h2>🤍 Warum Spende?</h2>
+      <p>
+        Hinter jedem Stück steckt nicht nur Handarbeit, sondern auch ein guter Zweck.
+        Ein Teil des Geldes wird gespendet – an <b>Tiere in Not</b> und an <b>Familien mit Kindern</b>,
+        die in verschiedenen Ländern in Armut leben.
+      </p>
+      <div class="note" style="margin-top:12px;">
+        Wenn du möchtest, kann auf Wunsch auch kurz dazugeschrieben werden, dass es sich um eine Spenden-Aktion handelt.
+      </div>
+    </section>
+
+
+    <footer>
+      <div style="margin-top:12px;">© <span id="year"></span> • Geschenke mit Herz Handmade</div>
+      <div>Erstellt mit Liebe 💗</div>
+    </footer>
+
+  </div>
+
+  <div class="sticky">
+    <a class="btn btnPrimary" id="waSticky" href="https://wa.me/41782196969?text=Hallo%20😊%20Ich%20m%C3%B6chte%20ein%20Porzellan-Geschenk%20bestellen.%20" target="_blank" rel="noopener">💬 Jetzt per WhatsApp bestellen</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
